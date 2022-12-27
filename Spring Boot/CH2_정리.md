@@ -1,4 +1,4 @@
-# 정리
+# CH2 정리
 ### 마이크로서비스 아키텍처(MSA; Microservice Architecture)
 ``` 
 💡 서비스 규모를 작게 나누어 구성한 아키텍처 
