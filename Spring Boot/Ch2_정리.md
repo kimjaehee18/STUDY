@@ -98,3 +98,47 @@ Model → 비즈니스와 데이터 접근 계층 영역
   * 데이터 접근 계층 → DAO(Repository)를 배치해 도메인 관리
 
 
+
+
+###
+
+<br>
+
+<hr>
+
+### REST API
+
+**REST**
+```
+💡 Representational State Transfer 주고 받는 자원(Resource)에 이름을 규정하고 URI에 명시해 HTTP 메서드(GET, POST, PUT, DELETE)를 통해 해당 자원의 상태를 주고 받는 것
+```
+
+**API**
+```
+💡 Application Programming Interface, 애플리케이션에서 제공하는 인터페이스, API를 통해 서버 또는 프로그램 사이를 연결할 수 있다.
+```
+
+**REST API**
+```
+💡 REST 아키텍처를 따르는 시스템/애플리케이션 인터페이스
+   REST 아키텍처를 구현하는 웹 서비스를 'RESTful 하다'라고 표현한다.
+```
+
+<br>
+
+
+**REST의 URI 설계 규칙**
+
+* URI의 마지막에는 '/'를 포함하지 않는다.
+
+  http://localhost.com/product (o)
+  
+  http://localhost.com/product/ (x)
+  
+* 언더바(_) 대신 하이픈(-)을 사용한다.
+
+  http://localhost.com/product-web-name (x)
+  
+* URI는 소문자로 쓴다.
+* 파일의 확장자는 URI에 포함하지 않는다.
+  
