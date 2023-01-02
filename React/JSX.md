@@ -196,4 +196,4 @@ const element = (
 
 위 코드에서 ```<div>``` 태그의 children은 ```<h1>과 <h2>``` 태그이다.
 
-👉[컴포넌트](https://github.com/kimjaehee18/STUDY/edit/main/React/Component.md)
+👉[컴포넌트](https://github.com/kimjaehee18/STUDY/blob/main/React/Component.md)
