@@ -40,4 +40,4 @@ $ npm start
   
   <br>
   
-👉 [JSX]([STUDY/React/JSX.md](https://github.com/kimjaehee18/STUDY/blob/main/React/JSX.md))
+👉 [JSX]([[STUDY/React/JSX.md](https://github.com/kimjaehee18/STUDY/blob/main/React/JSX.md)](https://github.com/kimjaehee18/STUDY/edit/main/React/JSX.md))
