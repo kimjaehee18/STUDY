@@ -6,16 +6,17 @@
 
 <br>
 
-<span style="color:red">
-Node.js, npm이 설치되어 있어야 한다. 
+<span style="color:#ff0000)">
+Node.js, npm이 설치되어 있어야 한다.
 </span>
 
 ```
 $ npx create-react-app <project-name>
 ```
 
-<project-name> 부분에 자신이 원하는 이름을 넣어주면 된다.
+```project-name``` 부분에 자신이 원하는 이름을 넣어주면 된다.
 
+  <br>
   
 ### 프로젝트 실행하기
 
@@ -27,9 +28,16 @@ $ study-react
 $ npm start
 ```
 
-[localhost:3000](http://localhost:3000) 으로 이동하면 성공적으로 React 웹 애플리케이션이 실행된 것을 볼 수 있다.
+  
+  <br>
+  
+  
+  localhost:3000 으로 이동하면 성공적으로 React 웹 애플리케이션이 실행된 것을 볼 수 있다.
 
 
 <img src="https://user-images.githubusercontent.com/72512101/210235808-57112cc9-738d-4e5b-b899-9a6baf8c7aa2.png" style="width:50%; height:50%">
 
-[JSX](STUDY/React/JSX)
+  
+  <br>
+  
+👉 [JSX](STUDY/React/JSX.md)
