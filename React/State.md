@@ -73,4 +73,5 @@ this.setState({
 * **언마운드(Unmount)** : 상의 컴포넌트에서 현재 컴포넌트를 더 이상 화면에 표시하지 않게 되는 과정
 
 
-[훅(Hook)](https://www.notion.so/Hook-ddf5152602854e6b86cd770f2edf7cdd)
+
+👉[훅(Hook)](https://github.com/kimjaehee18/STUDY/blob/main/React/Hook.md)
