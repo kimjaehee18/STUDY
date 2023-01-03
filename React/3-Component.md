@@ -321,4 +321,4 @@ function Comment(props){
 <br>
 
 
-👉[State와 생명주기](https://github.com/kimjaehee18/STUDY/blob/main/React/State.md)
+👉[State와 생명주기](https://github.com/kimjaehee18/STUDY/blob/main/React/4-State.md)
