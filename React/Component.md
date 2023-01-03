@@ -82,7 +82,7 @@ children은 없기 때문에 null
 <br>
 
 
-# 컴포넌트 만들기
+## 컴포넌트 만들기
 
 ### 1️⃣  컴포넌트 종류
 
@@ -160,12 +160,15 @@ ReactDOM.render (
 );
 ```
 
-# 컴포넌트 합성
+## 컴포넌트 합성
 
-<aside>
+```
 💡 여러 개의 컴포넌트를 합쳐서 하나의 컴포넌트를 만드는 것
+```
 
-</aside>
+
+<br>
+
 
 ```jsx
 function Welcome(props) {
@@ -192,7 +195,7 @@ ReactDOM.render(
 <br>
 
 
-# 컴포넌트 추출
+## 컴포넌트 추출
 
 ```
 💡 큰 컴포넌트를 쪼개서 여러 개의 컴포넌트로 만든다.
@@ -318,4 +321,4 @@ function Comment(props){
 <br>
 
 
-[State와 생명주기](https://www.notion.so/State-d649b2111cc84261b5b38b923d56a89e)
+👉[State와 생명주기](https://github.com/kimjaehee18/STUDY/blob/main/React/State.md)
