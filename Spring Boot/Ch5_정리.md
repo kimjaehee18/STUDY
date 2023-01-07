@@ -28,7 +28,34 @@
 ```
 
 
+<br>
 
+**예제**
+
+```java
+package com.example.spring.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1/get-api")
+public class ApiController {
+    @RequestMapping(value = "/spring", method = RequestMethod.GET)
+    public String getSpring() {
+        return "Hello API!";
+    }
+}
+```
+
+
+
+<br>
+
+**결과**
+
+![스크린샷 2023-01-08 오전 12 53 24](https://user-images.githubusercontent.com/72512101/211159361-56924aaa-8e99-4924-bc16-01b838763c36.png)
 
 <br>
 
