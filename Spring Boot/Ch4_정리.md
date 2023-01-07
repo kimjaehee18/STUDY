@@ -38,3 +38,41 @@
   * site -> site-deploy
 
 
+
+
+<br>
+
+
+### 3️⃣ Controller 작성하기
+
+com.example.spring 패키지 아래에 controller으로 하위 패키지를 생성하고 controller 패키지 안에 FirstController(Class)을 생성한다.
+```
+package com.example.spring.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FirstController {
+
+    @RequestMapping("/spring")
+    public String spring(){
+        return "Hello World!";
+    }
+}
+```
+
+<br>
+
+
+위와 같이 컨트롤러 코드를 작성하고 빌드한다.
+그리고 주소창에 localhost:8080/spring을 입력하면
+
+* 스프링부트는 기본 포트가 8080으로 설정되어 있다. 
+
+![스크린샷 2023-01-07 오후 11 32 57](https://user-images.githubusercontent.com/72512101/211157951-db3b178e-c353-41ed-8af2-fd0d747df924.png)
+
+
+
+
+
