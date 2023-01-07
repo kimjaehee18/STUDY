@@ -64,6 +64,28 @@ public class ApiController {
 
 <br>
 
+
+
+```
+package com.example.spring.controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1/get-api")
+public class ApiController {
+
+    @GetMapping(value = "/spring")
+    public String getSpring2() {
+        return "Hello API!";
+    }
+}
+```
+
+<br>
+
+
 **참고**
 
 👉 https://developer.mozilla.org/ko/docs/Glossary/REST
