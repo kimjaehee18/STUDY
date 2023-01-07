@@ -88,6 +88,37 @@ public class ApiController {
 <br>
 
 
+@GetMapping 은 별도의 매개변수 없이 GET API를 구현하는 것이고, 매개변수를 받기 위해서는 URL 자체에 값을 담아 요청하는 방법이 있다.
+```@PathVariable``` 을 사용하여 URL 패스로 파라미터를 전달하여 사용한다.
+
+
+
+
+```java
+package com.example.spring.controller;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/get-api")
+public class ApiController {
+
+    @GetMapping(value = "/spring/{variable}")
+    public String getVariable(@PathVariable String variable) {
+        return variable;
+    }
+}
+```
+
+<br>
+
+주소창에 http://localhost:8080/api/v1/get-api/spring/hello 을 입력하면 @GetMapping의 중괄호{} 위치에 매개변수로 hello가 전달되고 화면에 hello가 출력된다. 
+
+![스크린샷 2023-01-08 오전 1 05 00](https://user-images.githubusercontent.com/72512101/211159803-6fb597b8-d1cc-41ce-b272-f06b3fdbaece.png)
+
+
+<br>
+
+
 **참고**
 
 👉 https://developer.mozilla.org/ko/docs/Glossary/REST
