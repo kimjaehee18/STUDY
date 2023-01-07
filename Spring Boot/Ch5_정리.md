@@ -65,8 +65,10 @@ public class ApiController {
 <br>
 
 
+아래 코드는 위의 코드를 @RequestMapping 대신 @GetMapping을 사용하여 구현한 것으로 결과는 위와 똑같다.
 
-```
+
+```java
 package com.example.spring.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
