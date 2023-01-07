@@ -88,8 +88,9 @@ public class ApiController {
 <br>
 
 
+#### @PathVariable
 @GetMapping 은 별도의 매개변수 없이 GET API를 구현하는 것이고, 매개변수를 받기 위해서는 URL 자체에 값을 담아 요청하는 방법이 있다.
-```@PathVariable``` 을 사용하여 URL 패스로 파라미터를 전달하여 사용한다.
+```@PathVariable``` 을 사용하여 쿼리 형식으로 값을 전달하는 것이 아닌 URL 패스로 파라미터를 전달하여 사용한다.
 
 
 
@@ -114,6 +115,122 @@ public class ApiController {
 주소창에 http://localhost:8080/api/v1/get-api/spring/hello 을 입력하면 @GetMapping의 중괄호{} 위치에 매개변수로 hello가 전달되고 화면에 hello가 출력된다. 
 
 ![스크린샷 2023-01-08 오전 1 05 00](https://user-images.githubusercontent.com/72512101/211159803-6fb597b8-d1cc-41ce-b272-f06b3fdbaece.png)
+
+
+<br>
+
+
+
+
+#### @RequestParam
+
+위에서 언급한 ```@PathVariable```은 URL 경로에 값을 담아 요청을 보내는 방법이고, ```@RequestParam```은 쿼리 형식으로 값을 전달하는 것이다.
+
+* 쿼리 형식은 URI에서 '?'를 기준으로 '키=값' 형태로 구성된 요청을 전송하는 방법이다.
+
+
+<br>
+
+
+**코드**
+
+```java
+package com.example.spring.controller;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/get-api")
+public class ApiController {
+
+    @GetMapping(value = "/request")
+    public String getRequestParam(@RequestParam String name, @RequestParam String email) {
+        return name + " " + email;
+
+    }
+}
+```
+
+<br>
+
+url에 입력한 것을 보면 '?' 오른쪽으로 '키=값' 형식으로 쿼리스트링이 명시되어 있다. 매개변수를 여러 개 받으려면 '&'를 사용하여 변수 여러 개를 전달 받는다.
+
+<img width="762" alt="스크린샷 2023-01-08 오전 1 18 36" src="https://user-images.githubusercontent.com/72512101/211160364-2ec67003-af58-4d83-9911-df9462c79cee.png">
+
+
+<br>
+
+
+### 2️⃣ DTO
+
+```
+💡 Data Transfer Object, 각 클래스 및 인터페이스를 호출하면서 전달하는 매개변수로 사용되는 데이터 객체
+   다른 레이어 간의 데이터 교환에 활용한다. 
+```
+
+<br>
+
+
+```java
+package com.example.spring.dto;
+
+public class MemberDto {
+    private String name;
+    private String age;
+    private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberDto{" +
+                "name='" + name +'\'' +
+                ", age='" + age + '\'' +
+                ", email='" + email + '\'' + "}";
+    }
+}
+```
+
+<br>
+
+```java
+@GetMapping(value = "/request3")
+public String getRequestParam3(MemberDto memberDto) {
+   return memberDto.toString();
+}
+```    
+
+
+<br>
+
+
+### 3️⃣ POST API
+```
+💡 저장하고자 하는 리소스나 값을 HTTP 바디에 담아 서버에 전달한다.
+```
+
+```@RequestBody```는 HTTP의 Body 내용을 해당 어노테이션이 지정된 객체에 매핑하는 역할을 한다.
 
 
 <br>
