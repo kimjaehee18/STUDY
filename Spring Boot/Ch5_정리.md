@@ -60,6 +60,10 @@ public class ApiController {
 <br>
 
 
+🚨 스프링4.3 버전 이후로는 @GetMapping, @PostMapping, @PutMapping, @DeleteMapping 을 사용하기 때문에 특별한 경우가 아니면 @RequestMapping을 잘 사용하지 않는다.
+
+<br>
+
 **참고**
 
 👉 https://developer.mozilla.org/ko/docs/Glossary/REST
