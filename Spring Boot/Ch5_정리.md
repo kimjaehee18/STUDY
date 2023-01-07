@@ -236,6 +236,15 @@ public String getRequestParam3(MemberDto memberDto) {
 <br>
 
 
+### 4️⃣ PUT API
+```
+💡 웹 애플리케이션 서버를 통해 데이터베이스 같은 저장소에 존재하는 리소스 값을 업데이트 하는 데 사용한다.
+```
+
+
+<br>
+
+
 **참고**
 
 👉 https://developer.mozilla.org/ko/docs/Glossary/REST
