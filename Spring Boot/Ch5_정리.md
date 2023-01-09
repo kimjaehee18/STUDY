@@ -245,6 +245,120 @@ public String getRequestParam3(MemberDto memberDto) {
 <br>
 
 
+### 5️⃣ 로킹 라이브러리 - Logback
+```
+💡 로깅(logging) : 애플리케이션이 동작하는 동안 시스템의 상태나 동작 정보를 시간순으로 기록하는 것
+```
+
+<br>
+
+
+자바를 사용하면서 가장 많이 사용되는 로깅 프레임워크는 Logback으로 `Logback`은 log4j 이후에 출시된 로깅 프레임워크로 slf4j를 기반으로 구현되었고, log4j보다 성능이 좋다. <br> 또한 spring-boot-start-web 라이브러리 내부에 내장되어 있어 별도 의존성을 추가하지 않아도 된다.
+
+<br>
+
+
+Logback을 사용하기 위해서는 리소스 폴더 안에 logback-spring.xml 파일을 생성합니다.
+
+
+#### logback-spring.xml 살펴보기
+
+**Appender 영역**
+```로그의 형태를 설정하고 어떤 방법으로 출력할지 설정하는 곳```
+* ConoleAppender : 콘솔에 로그 출력
+* FileAppender : 파일에 로그 저장
+* RollingFileAppender : 여러 개의 파일을 순회하면서 로그 저장
+* SMTPAppender : 메일로 로그 전송
+* DBAppender : 데이터베이스에 로그 저장
+
+```xml
+<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>INFO</level>
+    </filter>
+    <encoder>                
+        <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+    </encoder>
+</appender>
+
+<appender name="INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>INFO</level>
+    </filter>
+    <file>${LOG_PATH}/info.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>${LOG_PATH}/info_${type}.%d{yyyy-MM-dd}.gz</fileNamePattern>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+        <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+    </encoder>
+</appender>
+```
+
+* `<filter></filter>` : 각 Appender가 어떤 레벨로 로그를 기록하는지 지정한다. <br>
+* `<encoder></encoder>` : 로그의 표현 형식을 패턴(pattern)으로 정의한다.
+
+<br>
+
+패턴 예시)
+
+```
+<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+```
+
+* `%d` : 로그 기록 시간
+* `%-5level` : 로그 레벨, -5는 출력 고정폭의 값
+* `%Logger{length}` : 로거의 이름
+* `%thread` : 현재 스레드명
+* `%msg(%message)` : 로그 메시지
+* `%n` : 줄바꿈
+
+<br>
+
+
+**Root 영역**
+
+설정 파일에 정의된 Appender를 활용하려면 Root 영역에서 Appender를 참조해서 로깅 레벨을 설정한다.
+
+```xml
+<root level="INFO">
+    <appender-ref ref="console"/>
+    <appender-ref ref="INFO_LOG"/>
+</root>
+```
+
+
+<br>
+
+
+**Logback 적용하기**
+
+Logback은 출력할 메시지를 Appender에게 전달할 Logger 객체를 각 클래스에 정의해서 사용한다.
+
+<br>
+
+
+* Logger 선언
+```java
+private final Logger LOGGER = LoggerFactory.getLogger(ApiController.class);
+Logger.info("Logback Test");
+```
+
+<br>
+
+
+결과로 콘솔 화면에 로그가 출력된다.
+
+![스크린샷 2023-01-10 오전 12 48 11](https://user-images.githubusercontent.com/72512101/211349274-208540c1-2de5-4a4e-9798-87de8b9cccf9.png)
+
+
+
+
+<br>
+
+
 **참고**
 
 👉 https://developer.mozilla.org/ko/docs/Glossary/REST
