@@ -110,4 +110,38 @@ JPA는 개발자가 직접 JDBC를 구현하는 문제점을 보완하여 개발
 * 준영속 : 영속성 컨텍스트에 의해 관리되던 엔티티 객체가 컨텍스트와 분리된 상태
 * 삭제 : 데이터베이스에서 레코드를 삭제하기 위해 영속성 컨텍스트에 삭제 요청을 한 상태
 
+<br>
+
+### 5️⃣ 데이터베이스 연동
+
+#### application.properties 파일에 데이터베이스 관련 설정 추가하기
+
+```properites
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasoure.url=jdbc:mariadb://localhost:3306/springboot
+spring.datasource.username=root
+spring.datasource.password=smjj1418**
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
+* `spring.datasource.driver-class-name` : 연동하려는 데이터베이스의 드라이버 정의
+* `spring.datasoure.url` : 마리아DB의 경로 명시, 경로와 데이터베이스명 정의
+* `spring.datasource.username`, `spring.datasource.password` : 데이터베이스 계정 정보
+* `spring.jpa.hibernate.ddl-auto` : 데이터베이스를 자동으로 조작하는 옵션, create는 기존 테이블을 지우고 새로 생성하는 것이다.
+* `spring.jpa.show-sql` : 로그에 하이버네이트가 생성한 쿼리문 출력
+* `spring.jpa.properties.hibernate.format_sql` : 보기 좋게 포맷
+
+
+<br>
+
+
+### 6️⃣ 엔티티 설계
+* Spring Data JPA를 사용하면 데이터베이스에 테이블을 생성하기 위해 직접 쿼리를 작성할 필요가 없다. 이 기능을 가능하게 하는 것이 엔티티이다.
+* JPA에서 엔티티는 데이터베이스의 테이블에 대응하는 클래스이다.
+* 엔티티에는 데이터베이스에 쓰일 테이블과 칼럼을 정의한다.
+* 엔티티에 어노테이션을 사용하면 테이블 간의 연관관계를 정의할 수 있다.
+
+
 
