@@ -165,5 +165,45 @@ spring.jpa.properties.hibernate.format_sql=true
 <br>
 
 ### 7️⃣ 리포지토리 인터페이스 설계
-<span style="color:red">txt</span>
-<span style="color:red"> 글씨색 변경 </span>
+Spring Data JPA는 JpaRepository를 기반으로 더욱 더 쉽게 사용할 수 있다. <br>
+**첫 단어를 제외한 이후 단어들의 첫 글자를 대문자로 설정하면 JPA에서 인식하고 쿼리를 자동으로 만들어준다.**
+
+ex) findByName(String name), findByNameAndEmail(String name, String email) 등
+* findBy는 SQL문의 where 절 역할이다.
+* And/Or
+* Like/NotLike
+* countBy
+* orderBy
+
+위의 조건 외에도 여러가지 조건들이 있다.
+
+
+<br>
+
+
+### 8️⃣ DAO 설계
+```
+💡 DAO(Data Access Object) : 데이터베이스에 접근하기 위한 로직을 관리하는 객체
+```
+Spring Data JPA 에서 DAO 개념은 리포지토리가 대체한다.
+
+* DAO를 서비스 레이어와 리포지토리의 중간 계층을 구성하는 역할로 사용한다.
+* DAO 클래스는 일반적을 '인터페이스-구현체' 구성으로 생성한다.
+
+
+<br>
+
+> __Note__
+> 
+> 클래스를 스프링이 관리하는 빈으로 등록하려면 `@Component` 또는 `@Service` 어노테이션을 지정해야 한다.  <br>
+> 빈으로 등록된 객체는 다른 클래스가 인터페이스를 가지고 의존성을 주입받을 때 이 구현체를 찾아서 주입하게 된다.
+
+* DAO 객체에서도 데이터베이스에 접근하기 위해 리포지토리 인텊이스를 사용해 의존성 주입(생성자를 통해)을 받아야 한다.
+
+<br>
+
+> __Note__
+> 
+> 빌더 메서드는 빌더(Builder) 패턴을 따르는 메서드이다. <br>
+> 데이터 클래스를 사용할 때 생성자로 초기화할 경우 모든 필드에 값을 넣거나 null을 명시적으로 사용해야 하는데, 이러한 단점을 보완하기 위해 나온 패턴이 빌더 패턴이다.
+> 빌더 패턴을 이용하면 필요한 데이터만 설정할 수 있어 유연성을 확보할 수 있다.
